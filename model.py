@@ -34,41 +34,41 @@ class CambiosProyecto(BaseModel):
 
 # Clase modelo de la coleccion embebida que representa los "Requerimientos del proyecto"
 class Requerimiento(BaseModel):
-    tipo_requerimiento: str
-    descripcion: str
+    tipo_requerimiento: Optional[str]
+    descripcion: Optional[str]
 
 
 # Clase modelo de la coleccion embebida que representa los "Pagos realizados a los proyectos"
 class Pago(BaseModel):
-    fecha: str
-    monto: float
-    comentario: str
+    fecha: Optional[str]
+    monto: Optional[float]
+    comentario: Optional[str]
 
 
 # Clase modelo de la coleccion embebida que representa el "Seguimiento de avances del proyecto"
 class SeguimientoProyecto(BaseModel):
-    fecha: str
-    nota: str
-    responsable: str
+    fecha: Optional[str]
+    nota: Optional[str]
+    responsable_seguimiento: Optional[str]
 
 
 # Clase modelo de la coleccion que representa los "Proyectos de software"
 class Proyecto(BaseModel):
     _id: str
-    project_id: str
-    cliente_id: str
-    equipo_id: str
-    nombre_proyecto: str
-    descripcion_proyecto: str
-    fecha_inicio: str
+    proyecto_id: Optional[str] = None
+    cliente_id: Optional[str] = None
+    equipo_id: Optional[str] = None
+    nombre_proyecto: Optional[str] = None
+    descripcion_proyecto: Optional[str] = ""
+    fecha_inicio: Optional[str] = None
     fecha_fin: Optional[str] = None
-    margen_ganancia: float
-    requerimientos: List[Requerimiento]
-    pagos: List[Pago]
-    seguimientoProyecto: List[SeguimientoProyecto]
-    herramientas_utilizadas: List[str]
-    metodologias_utilizadas: List[str]
-    estado: str
+    margen_ganancia: Optional[float]
+    requerimientos: Optional[List[Requerimiento]] = []
+    pagos: Optional[List[Pago]] = []
+    seguimientoProyecto: Optional[List[SeguimientoProyecto]] = []
+    herramientas_utilizadas: Optional[List[str]] = []
+    metodologias_utilizadas: Optional[List[str]] = []
+    estado: Optional[str] = None
     fecha_entrega: Optional[str] = None
 
     class Config:
